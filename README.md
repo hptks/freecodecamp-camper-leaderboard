@@ -1,1 +1,1 @@
-# freecodecamp-camper-leaderboard
+# freeCodeCamp Camper Leaderboard
