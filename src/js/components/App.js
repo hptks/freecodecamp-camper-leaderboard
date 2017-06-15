@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { fetch, sortAsc, sortDes } from '../actions/camperActions'
+import { fetch, sortAscRec, sortDesRec, sortAscAll, sortDesAll } from '../actions/camperActions'
 
 @connect((store) => {
   return {
@@ -17,13 +17,25 @@ export default class App extends React.Component {
 
   sortCampersRecent() {
     const { users } = this.props.campers
-    let element = document.getElementById('toggle')
-    if (element.className == 'des') {
-      this.props.dispatch(sortAsc(users))
-      element.className = 'asc'
+    let element = document.getElementById('toggleRecent')
+    if (element.className == 'desRec') {
+      this.props.dispatch(sortAscRec(users))
+      element.className = 'ascRec'
     } else {
-      this.props.dispatch(sortDes(users))
-      element.className = 'des'
+      this.props.dispatch(sortDesRec(users))
+      element.className = 'desRec'
+    }
+  }
+
+  sortCampersAlltime() {
+    const { users } = this.props.campers
+    let element = document.getElementById('toggleAlltime')
+    if (element.className == 'desAll') {
+      this.props.dispatch(sortAscAll(users))
+      element.className = 'ascAll'
+    } else {
+      this.props.dispatch(sortDesAll(users))
+      element.className = 'desAll'
     }
   }
 
@@ -47,8 +59,8 @@ export default class App extends React.Component {
               <tr>
                 <th>#</th>
                 <th>Camper name</th>
-                <th class="adjust"><a id="toggle" class="des" onClick={this.sortCampersRecent.bind(this)}>Points in past 30 days</a></th>
-                <th class="adjust">All time points</th>
+                <th class="adjust"><a id="toggleRecent" class="desRec" onClick={this.sortCampersRecent.bind(this)}>Points in past 30 days</a></th>
+                <th class="adjust"><a id="toggleAlltime" class="desAll" onClick={this.sortCampersAlltime.bind(this)}>All time points</a></th>
               </tr>
             </thead>
             <tbody>
