@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fetch } from '../actions/camperActions'
+
+import { fetch, sortAsc, sortDes } from '../actions/camperActions'
 
 @connect((store) => {
   return {
@@ -14,8 +15,20 @@ export default class App extends React.Component {
     setTimeout(() => {}, 1000)
   }
 
+  sortCampersRecent() {
+    const { users } = this.props.campers
+    let element = document.getElementById('toggle')
+    if (element.className == 'des') {
+      this.props.dispatch(sortAsc(users))
+      element.className = 'asc'
+    } else {
+      this.props.dispatch(sortDes(users))
+      element.className = 'des'
+    }
+  }
+
   render() {
-    const users = this.props.campers.users
+    const { users } = this.props.campers
     const Campers = users.map((user, i) => {
       return (<tr>
                 <td>{i + 1}</td>
@@ -34,7 +47,7 @@ export default class App extends React.Component {
               <tr>
                 <th>#</th>
                 <th>Camper name</th>
-                <th class="adjust">Points in past 30 days</th>
+                <th class="adjust"><a id="toggle" class="des" onClick={this.sortCampersRecent.bind(this)}>Points in past 30 days</a></th>
                 <th class="adjust">All time points</th>
               </tr>
             </thead>
