@@ -13,5 +13,8 @@ After all modules are installed to run the application execute the command below
 npm start
 ```
 
+# Description
+At the start of the application, the initial top 100 campers in freeCodeCamp are fetched alongside information about their recent and all time activity. The user can sort the campers in ascending or descending order depending on their recent or all time activity.
+
 # License
 See the [LICENSE](https://github.com/hptks/freecodecamp-markdown-previewer/LICENSE) file for license rights and limitations (MIT).
