@@ -17,4 +17,4 @@ npm start
 At the start of the application, the initial top 100 campers in freeCodeCamp are fetched alongside information about their recent and all time activity. The user can sort the campers in ascending or descending order depending on their recent or all time activity.
 
 # License
-See the [LICENSE](https://github.com/hristo-tanev/freecodecamp-markdown-previewer/LICENSE) file for license rights and limitations (MIT).
+See the [LICENSE](https://github.com/hristo-tanev/freecodecamp-camper-leaderboard/LICENSE) file for license rights and limitations (MIT).
